@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "dev": "netlify dev -c \"npm run serve\"",
     "serve": "vue-cli-service serve",
-    "prebuild": "cd .functions && npm i",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "prebuild": "cd .functions && npm i"
   },
   "dependencies": {
     "@mooeypoo/dom-word-replacer": "^0.9.3",
@@ -15,6 +16,7 @@
     "parse5": "^6.0.1",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
+    "vuetify": "^2.4.0",
     "xmldom": "^0.5.0",
     "xmlserializer": "^0.6.1"
   },
@@ -33,6 +35,10 @@
     "eslint-plugin-vue": "^6.2.2",
     "less": "^3.0.4",
     "less-loader": "^5.0.0",
-    "vue-template-compiler": "^2.6.11"
+    "sass": "^1.32.0",
+    "sass-loader": "^10.0.0",
+    "vue-cli-plugin-vuetify": "~2.3.1",
+    "vue-template-compiler": "^2.6.11",
+    "vuetify-loader": "^1.7.0"
   }
 }
