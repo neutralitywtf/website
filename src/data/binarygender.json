@@ -1,0 +1,413 @@
+{
+  "name": "Binary Gender",
+  "terms": [
+    {
+      "category": "Terminology",
+      "terms": {
+        "men": ["patriarchy"],
+        "women": ["matriarchy"]
+      }
+    },
+    {
+      "category": "Terminology (Adj)",
+      "terms": {
+        "men": ["patriarchal", "patriarchical"],
+        "women": ["matriarchal", "matriarchical"]
+      }
+    },
+    {
+      "category": "Secondary terminology (Adj)",
+      "terms": {
+        "men": ["patrilineal"],
+        "women": ["matrilineal"]
+      }
+    },
+    {
+      "category": "Negative terminology (singular)",
+      "terms": {
+        "men": ["sexism", "chauvinism", "misandry"],
+        "women": ["sexism", "misogyny"]
+      }
+    },
+    {
+      "category": "Head of family",
+      "terms": {
+        "men": ["patriarch"],
+        "women": ["matriarch"]
+      }
+    },
+    {
+      "category": "Title",
+      "terms": {
+        "men": ["Mr"],
+        "women": ["Mrs"]
+      }
+    },
+    {
+      "category": "Honorific (singular)",
+      "terms": {
+        "men": ["sir"],
+        "women": ["madam", "dame"]
+      }
+    },
+    {
+      "category": "Honorific (plural)",
+      "terms": {
+        "men": ["sirs"],
+        "women": ["madams"]
+      }
+    },
+    {
+      "category": "Respectful (singular)",
+      "terms": {
+        "men": ["gentleman"],
+        "women": ["lady"]
+      }
+    },
+    {
+      "category": "Respectful (plural)",
+      "terms": {
+        "men": ["gentlemen"],
+        "women": ["ladies"]
+      }
+    },
+    {
+      "category": "Colloquial (singular)",
+      "terms": {
+        "men": ["guy"],
+        "women": ["gal"]
+      }
+    },
+    {
+      "category": "Colloquial (plural)",
+      "terms": {
+        "men": ["guys"],
+        "women": ["gals"]
+      }
+    },
+    {
+      "category": "Royalty (singular)",
+      "terms": {
+        "men": ["lord"],
+        "women": ["lady"]
+      }
+    },
+    {
+      "category": "Royalty (plural)",
+      "terms": {
+        "men": ["lords"],
+        "women": ["ladies"]
+      }
+    },
+    {
+      "category": "Royalty: Count (singular)",
+      "terms": {
+        "men": ["earl"],
+        "women": ["countess"]
+      }
+    },
+    {
+      "category": "Royalty: Count (plural)",
+      "terms": {
+        "men": ["earls"],
+        "women": ["countesses"]
+      }
+    },
+    {
+      "category": "Royalty: Ruler (singular)",
+      "terms": {
+        "men": ["king"],
+        "women": ["queen"]
+      }
+    },
+    {
+      "category": "Royalty: Ruler (plural)",
+      "terms": {
+        "men": ["kings"],
+        "women": ["queens"]
+      }
+    },
+    {
+      "category": "Grandparent: formal (singular)",
+      "terms": {
+        "men": ["grandfather"],
+        "women": ["grandmother"]
+      }
+    },
+    {
+      "category": "Grandparent: formal (plural)",
+      "terms": {
+        "men": ["grandfathers"],
+        "women": ["grandmothers"]
+      }
+    },
+    {
+      "category": "Grandparent: familiar (singular)",
+      "terms": {
+        "men": ["grandpa", "grandpop"],
+        "women": ["grandma", "grandmom"]
+      }
+    },
+    {
+      "category": "Grandparent: familiar (plural)",
+      "terms": {
+        "men": ["grandpas", "grandpops"],
+        "women": ["grandmas", "grandmoms"]
+      }
+    },
+    {
+      "category": "Parent: formal (singular)",
+      "terms": {
+        "men": ["father"],
+        "women": ["mother"]
+      }
+    },
+    {
+      "category": "Parent: formal (plural)",
+      "terms": {
+        "men": ["fathers"],
+        "women": ["mothers"]
+      }
+    },
+    {
+      "category": "Parent: familiar (singular)",
+      "terms": {
+        "men": ["dad"],
+        "women": ["mom"]
+      }
+    },
+    {
+      "category": "Parent: familiar (plural)",
+      "terms": {
+        "men": ["dads"],
+        "women": ["moms"]
+      }
+    },
+    {
+      "category": "Own child (singular)",
+      "terms": {
+        "men": ["son"],
+        "women": ["daughter"]
+      }
+    },
+    {
+      "category": "Own child (plural)",
+      "terms": {
+        "men": ["sons"],
+        "women": ["daughters"]
+      }
+    },
+    {
+      "category": "Biology (singular)",
+      "terms": {
+        "men": ["male"],
+        "women": ["female"]
+      }
+    },
+    {
+      "category": "Biology (plural)",
+      "terms": {
+        "men": ["males"],
+        "women": ["females"]
+      }
+    },
+    {
+      "category": "Adult (singular)",
+      "terms": {
+        "men": ["man"],
+        "women": ["woman"]
+      }
+    },
+    {
+      "category": "Adult (plural)",
+      "terms": {
+        "men": ["men"],
+        "women": ["women"]
+      }
+    },
+    {
+      "category": "Child (singular)",
+      "terms": {
+        "men": ["boy"],
+        "women": ["girl"]
+      }
+    },
+    {
+      "category": "Child (plural)",
+      "terms": {
+        "men": ["boys"],
+        "women": ["girls"]
+      }
+    },
+    {
+      "category": "Sibling (singular)",
+      "terms": {
+        "men": ["brother"],
+        "women": ["sister"]
+      }
+    },
+    {
+      "category": "Sibling (plural)",
+      "terms": {
+        "men": ["brothers"],
+        "women": ["sisters"]
+      }
+    },
+    {
+      "category": "Slang (singular)",
+      "terms": {
+        "men": ["dude", "bro"],
+        "women": ["chick", "broad", "ho"]
+      }
+    },
+    {
+      "category": "Slang (plural)",
+      "terms": {
+        "men": ["dudes", "bros"],
+        "women": ["chicks", "broads", "hos", "hoes"]
+      }
+    },
+    {
+      "category": "Marriage (singular)",
+      "terms": {
+        "men": ["husband"],
+        "women": ["wife"]
+      }
+    },
+    {
+      "category": "Marriage (plural)",
+      "terms": {
+        "men": ["husbands"],
+        "women": ["wives"]
+      }
+    },
+    {
+      "category": "Relationship (singular)",
+      "terms": {
+        "men": ["boyfriend"],
+        "women": ["girlfriend"]
+      }
+    },
+    {
+      "category": "Relationship (plural)",
+      "terms": {
+        "men": ["boyfriends"],
+        "women": ["girlfriends"]
+      }
+    },
+    {
+      "category": "Activist (singular)",
+      "terms": {
+        "men": ["meninist"],
+        "women": ["feminist"]
+      }
+    },
+    {
+      "category": "Activist (plural)",
+      "terms": {
+        "men": ["meninists"],
+        "women": ["feminists"]
+      }
+    },
+    {
+      "category": "Activism",
+      "terms": {
+        "men": ["meninism"],
+        "women": ["feminism"]
+      }
+    },
+    {
+      "category": "Pronouns",
+      "terms": {
+        "men": ["he"],
+        "women": ["she"]
+      }
+    },
+    {
+      "category": "Pronouns: who",
+      "terms": {
+        "men": ["him"],
+        "women": ["her"]
+      }
+    },
+    {
+      "category": "Pronouns: who (self)",
+      "terms": {
+        "men": ["himself"],
+        "women": ["herself"]
+      }
+    },
+    {
+      "category": "Pronouns: possession",
+      "ambiguous": ["men"],
+      "terms": {
+        "men": ["his"],
+        "women": ["her"]
+      }
+    },
+    {
+      "category": "Pronouns: whose",
+      "ambiguous": ["men"],
+      "terms": {
+        "men": ["his"],
+        "women": ["hers"]
+      }
+    },
+    {
+      "category": "Adverb",
+      "terms": {
+        "men": ["manly", "boyish"],
+        "women": ["womanly", "girly"]
+      }
+    },
+    {
+      "category": "Adjective",
+      "terms": {
+        "men": ["masculine"],
+        "women": ["feminine"]
+      }
+    },
+    {
+      "category": "Superhero (singular)",
+      "terms": {
+        "men": ["superman"],
+        "women": ["superwoman", "supergirl"]
+      }
+    },
+    {
+      "category": "Superhero (plural)",
+      "terms": {
+        "men": ["supermen"],
+        "women": ["superwomen", "supergirls"]
+      }
+    },
+    {
+      "category": "Profession: sales (singular)",
+      "terms": {
+        "men": ["salesman"],
+        "women": ["saleswoman"]
+      }
+    },
+    {
+      "category": "Profession: sales (plural)",
+      "terms": {
+        "men": ["salesmen"],
+        "women": ["saleswomen"]
+      }
+    },
+    {
+      "category": "College club (singular)",
+      "terms": {
+        "men": ["fraternity", "frat"],
+        "women": ["sorority"]
+      }
+    },
+    {
+      "category": "College club (plural)",
+      "terms": {
+        "men": ["fraternities", "frats"],
+        "women": ["sororities"]
+      }
+    }
+  ]
+}
