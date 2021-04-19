@@ -45,7 +45,7 @@ const getUrlContents = async url => {
 };
 
 exports.handler = async event => {
-  const pathparams = event.path.replace('.netlify/functions/replace', '');
+  const pathparams = event.path.replace('api/replace', '');
   let [url, type] = pathparams.split('/').filter(entry => !!entry);
   type = type || 'desktop';
   url = decodeURIComponent(url);
@@ -90,18 +90,21 @@ exports.handler = async event => {
   const doc = getDocumentFromHtml(result);
   const css = `
     .neutralitywtf-term {
-      background-color: yellow;
-      border-bottom: 1px dashed #666666;
+      background-color: rgba(139, 195, 74, 0.5);
+      padding: 0 0.2em;;
+    }
+    .neutralitywtf-term.neutralitywtf-term-ambiguous {
+      background-color: rgba(255, 193, 7, 0.5);
     }
   `;
-  const cssNode = doc.createElement('style');
+  const cssNode = doc.createElementNS('http //www.w3.org/1999/xhtml', 'style');
+  const headNode = doc.getElementsByTagName('head')[0];
   cssNode.appendChild(doc.createTextNode(css));
-  doc.getElementsByTagName('head')[0].appendChild(cssNode);
-  result = xmlserializer.serializeToString(doc);
+  headNode.insertBefore(cssNode, headNode.firstChild);
 
   // Fix base url
   const urlObj = new URL(url);
-  const baseNode = doc.createElement('base');
+  const baseNode = doc.createElementNS('http //www.w3.org/1999/xhtml', 'base');
   baseNode.setAttribute('href', urlObj.origin);
   baseNode.setAttribute('target', '_blank');
   const existingBaseElement = doc.getElementsByTagName('base');
@@ -109,7 +112,7 @@ exports.handler = async event => {
     doc.parentElement.insertBefore(baseNode, existingBaseElement);
     doc.parentElement.removeChild(existingBaseElement);
   } else {
-    doc.getElementsByTagName('head')[0].appendChild(baseNode);
+    headNode.insertBefore(baseNode, headNode.firstChild);
   }
   result = xmlserializer.serializeToString(doc);
 

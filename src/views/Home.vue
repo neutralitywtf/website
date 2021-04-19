@@ -22,7 +22,7 @@
         </v-btn>
       </v-form>
       <img v-if="loading" src="../assets/loading-200px.gif" />
-    <iframe v-if="ready" :srcdoc="flippedHtml" width="100%" min-height="60vh"></iframe>
+    <iframe v-show="ready" @load="onIframeLoaded" :src="apiUrl" width="100%"></iframe>
   </v-container>
 </template>
 
@@ -47,7 +47,7 @@ export default {
           '(\\#[-a-z\\d_]*)?$', 'i')).test(v) || 'URL is invalid.'
       ],
       ready: false,
-      flippedHtml: ''
+      apiUrl: ''
     }
   },
   components: {
@@ -56,10 +56,12 @@ export default {
     async fetchUrl () {
       this.loading = true
       this.ready = false
+      this.apiUrl = ''
       const encodedUrl = encodeURIComponent(this.requestUrl)
-      // this.ready = false
-      const resp = await fetch(`/.netlify/functions/replace/${encodedUrl}/desktop`)
-      this.flippedHtml = (await resp.text())
+      // this.apiUrl = `/.netlify/functions/replace/${encodedUrl}/desktop`
+      this.apiUrl = `/api/replace/${encodedUrl}/desktop`
+    },
+    onIframeLoaded () {
       this.loading = false
       this.ready = true
     }
@@ -68,3 +70,9 @@ export default {
   }
 }
 </script>
+
+<style lang="less">
+iframe {
+  min-height: 60vh;
+}
+</style>
