@@ -87,10 +87,8 @@ exports.handler = async event => {
     `
   });
 
-  // Convert one-way
-  let result = replacer.replace(data.content, 'men', 'women', urlObj.origin);
-  // now the other side
-  result = replacer.replace(result, 'women', 'men');
+  // Convert both ways
+  let result = replacer.replace(data.content, 'men', 'women', urlObj.origin, true);
 
   return {
     statusCode: 200,
