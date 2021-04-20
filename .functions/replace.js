@@ -1,6 +1,5 @@
 const DomWordReplacer = require('@mooeypoo/dom-word-replacer').default;
 const dictDefinition = require('../src/data/binarygender.json');
-const serialize = require("w3c-xmlserializer");
 const fetch = require('node-fetch');
 
 // Source: https://stackoverflow.com/questions/5717093/check-if-a-javascript-string-is-a-url
@@ -13,6 +12,14 @@ const validateUrl = str => {
     '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
   return !!pattern.test(str);
 };
+
+const normalizeUrl = str => {
+  // Add https if not given
+  const prefix = 'https://'
+  return str.substr(0, prefix.length) === prefix ?
+    str :
+    prefix + str
+}
 
 const getUrlContents = async url => {
   try {
@@ -48,6 +55,8 @@ exports.handler = async event => {
     };
   }
 
+  url = normalizeUrl(url);
+
   // Fetch URL
   const data = await getUrlContents(url);
   if (data.status === 'error') {
@@ -81,10 +90,10 @@ exports.handler = async event => {
   // Convert one-way
   let result = replacer.replace(data.content, 'men', 'women', urlObj.origin);
   // now the other side
-  result = replacer.replace(result, 'women', 'men', urlObj.origin);
+  result = replacer.replace(result, 'women', 'men');
 
   return {
     statusCode: 200,
-    body: serialize(result)
+    body: result
   }
 }
