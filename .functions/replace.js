@@ -1,21 +1,7 @@
 const DomWordReplacer = require('@mooeypoo/dom-word-replacer').default;
 const dictDefinition = require('../src/data/binarygender.json');
-const parse5 = require('parse5');
-const xmlserializer = require('xmlserializer');
-const xmldom = require('xmldom');
+const serialize = require("w3c-xmlserializer");
 const fetch = require('node-fetch');
-
-/* Operational functions */
-const getDocumentFromHtml = htmlString => {
-  const document = parse5.parse(htmlString);
-  const xhtml = xmlserializer.serializeToString(document);
-  return new xmldom.DOMParser().parseFromString(xhtml);
-};
-
-const preprocess = (url, htmlString) => {
-
-  return xmlserializer.serializeToString(doc);
-}
 
 // Source: https://stackoverflow.com/questions/5717093/check-if-a-javascript-string-is-a-url
 const validateUrl = str => {
@@ -75,49 +61,30 @@ exports.handler = async event => {
     };
   }
 
+  const urlObj = new URL(url);
+
   // Perform replacement
   const replacer = new DomWordReplacer(dictDefinition, {
     termClass: 'neutralitywtf-term',
-    ambiguousClass: 'neutralitywtf-term-ambiguous'
+    ambiguousClass: 'neutralitywtf-term-ambiguous',
+    css: `
+      .neutralitywtf-term {
+        background-color: rgba(139, 195, 74, 0.5);
+        padding: 0 0.2em;;
+      }
+      .neutralitywtf-term.neutralitywtf-term-ambiguous {
+        background-color: rgba(255, 193, 7, 0.5);
+      }
+    `
   });
 
   // Convert one-way
-  let result = replacer.replace(data.content, 'men', 'women');
+  let result = replacer.replace(data.content, 'men', 'women', urlObj.origin);
   // now the other side
-  result = replacer.replace(result, 'women', 'men');
-
-  // Inject CSS
-  const doc = getDocumentFromHtml(result);
-  const css = `
-    .neutralitywtf-term {
-      background-color: rgba(139, 195, 74, 0.5);
-      padding: 0 0.2em;;
-    }
-    .neutralitywtf-term.neutralitywtf-term-ambiguous {
-      background-color: rgba(255, 193, 7, 0.5);
-    }
-  `;
-  const cssNode = doc.createElementNS('http //www.w3.org/1999/xhtml', 'style');
-  const headNode = doc.getElementsByTagName('head')[0];
-  cssNode.appendChild(doc.createTextNode(css));
-  headNode.insertBefore(cssNode, headNode.firstChild);
-
-  // Fix base url
-  const urlObj = new URL(url);
-  const baseNode = doc.createElementNS('http //www.w3.org/1999/xhtml', 'base');
-  baseNode.setAttribute('href', urlObj.origin);
-  baseNode.setAttribute('target', '_blank');
-  const existingBaseElement = doc.getElementsByTagName('base');
-  if (existingBaseElement.length) {
-    doc.parentElement.insertBefore(baseNode, existingBaseElement);
-    doc.parentElement.removeChild(existingBaseElement);
-  } else {
-    headNode.insertBefore(baseNode, headNode.firstChild);
-  }
-  result = xmlserializer.serializeToString(doc);
+  result = replacer.replace(result, 'women', 'men', urlObj.origin);
 
   return {
     statusCode: 200,
-    body: result
+    body: serialize(result)
   }
 }
