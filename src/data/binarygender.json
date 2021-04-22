@@ -298,14 +298,14 @@
     {
       "category": "Activist (singular)",
       "terms": {
-        "men": ["meninist"],
+        "men": ["meninist", "masculinist"],
         "women": ["feminist"]
       }
     },
     {
       "category": "Activist (plural)",
       "terms": {
-        "men": ["meninists"],
+        "men": ["meninists", "masculinists"],
         "women": ["feminists"]
       }
     },
@@ -375,6 +375,13 @@
       }
     },
     {
+      "category": "Adjective 2",
+      "terms": {
+        "men": ["masculinized", "masculinised"],
+        "women": ["femininized", "femininised", "feminized", "feminised"]
+      }
+    },
+    {
       "category": "Biological process",
       "terms": {
         "men": ["irritable male syndrome"],
@@ -421,6 +428,34 @@
       "terms": {
         "men": ["salesmen"],
         "women": ["saleswomen"]
+      }
+    },
+    {
+      "category": "Profession: repair (singular)",
+      "terms": {
+        "men": ["repairman"],
+        "women": ["repairwoman"]
+      }
+    },
+    {
+      "category": "Profession: repair (plural)",
+      "terms": {
+        "men": ["repairmen"],
+        "women": ["repairwomen"]
+      }
+    },
+    {
+      "category": "Profession: handy (singular)",
+      "terms": {
+        "men": ["handyman"],
+        "women": ["handywoman"]
+      }
+    },
+    {
+      "category": "Profession: handy (plural)",
+      "terms": {
+        "men": ["handymen"],
+        "women": ["handywomen"]
       }
     },
     {
