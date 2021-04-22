@@ -21,9 +21,15 @@ const normalizeUrl = str => {
     prefix + str
 }
 
-const getUrlContents = async url => {
+const getUrlContents = async (url, isMobile) => {
   try {
-    const response = await fetch(url);
+    const response = await fetch(url, {
+      headers: {
+        'User-Agent': isMobile ?
+          'Mozilla/5.0 (Linux; Android 5.1.1; Nexus 5 Build/LMY48B; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/43.0.2357.65 Mobile Safari/537.36' :
+          'MozillaXYZ/1.0'
+      } 
+    });
     const text = await response.text();
     return {
       status: 'success',
@@ -40,7 +46,7 @@ const getUrlContents = async url => {
 exports.handler = async event => {
   const pathparams = event.path.replace('api/replace', '');
   let [url, type] = pathparams.split('/').filter(entry => !!entry);
-  type = type || 'desktop';
+  const isMobile = type === 'mobile';
   url = decodeURIComponent(url);
 
   // Validate url
@@ -58,7 +64,7 @@ exports.handler = async event => {
   url = normalizeUrl(url);
 
   // Fetch URL
-  const data = await getUrlContents(url);
+  const data = await getUrlContents(url, isMobile);
   if (data.status === 'error') {
     // Return failure
     return {
