@@ -47,7 +47,7 @@
       "category": "Honorific (singular)",
       "terms": {
         "men": ["sir"],
-        "women": ["madam", "dame"]
+        "women": ["madam", "madame", "dame"]
       }
     },
     {
@@ -356,8 +356,15 @@
     {
       "category": "Adverb",
       "terms": {
-        "men": ["manly", "boyish"],
-        "women": ["womanly", "girly"]
+        "men": ["manly"],
+        "women": ["ladylike"]
+      }
+    },
+    {
+      "category": "Adverb2",
+      "terms": {
+        "men": ["boyish"],
+        "women": ["girly"]
       }
     },
     {
@@ -365,6 +372,20 @@
       "terms": {
         "men": ["masculine"],
         "women": ["feminine"]
+      }
+    },
+    {
+      "category": "Biological process",
+      "terms": {
+        "men": ["irritable male syndrome"],
+        "women": ["menstrual", "Menstruation"]
+      }
+    },
+    {
+      "category": "Biological process",
+      "terms": {
+        "men": ["ims"],
+        "women": ["pms"]
       }
     },
     {
