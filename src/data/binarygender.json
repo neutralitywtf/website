@@ -356,7 +356,7 @@
     {
       "category": "Adverb",
       "terms": {
-        "men": ["manly"],
+        "men": ["manly", "gentlemanly"],
         "women": ["ladylike"]
       }
     },
@@ -378,7 +378,14 @@
       "category": "Biological process",
       "terms": {
         "men": ["irritable male syndrome"],
-        "women": ["menstrual", "Menstruation"]
+        "women": ["menstrual", "menstruation"]
+      }
+    },
+    {
+      "category": "Biological process",
+      "terms": {
+        "men": ["pre-irritable male syndrome"],
+        "women": ["premenstrual", "premenstruation"]
       }
     },
     {
