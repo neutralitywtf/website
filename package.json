@@ -1,6 +1,7 @@
 {
-  "name": "site",
-  "version": "0.1.0",
+  "name": "neutralitywtf-site",
+  "author": "Moriel Schottlender",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "netlify dev -c \"npm run serve\"",
@@ -10,7 +11,7 @@
     "prebuild": "cd .functions && npm i"
   },
   "dependencies": {
-    "@mooeypoo/dom-word-replacer": "^0.9.5",
+    "@mooeypoo/dom-word-replacer": "^0.9.6",
     "core-js": "^3.6.5",
     "jsdom": "^16.5.3",
     "node-fetch": "^2.6.1",
@@ -18,8 +19,6 @@
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
     "vuetify": "^2.4.0",
-    "xmldom": "^0.5.0",
-    "xmlserializer": "^0.6.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

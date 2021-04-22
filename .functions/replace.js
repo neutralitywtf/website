@@ -1,4 +1,4 @@
-const DomWordReplacer = require('@mooeypoo/dom-word-replacer').default;
+const DomWordReplacer = require('@mooeypoo/dom-word-replacer');
 const dictDefinition = require('../src/data/binarygender.json');
 const fetch = require('node-fetch');
 
