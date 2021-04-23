@@ -375,6 +375,13 @@
       }
     },
     {
+      "category": "Adjective description",
+      "terms": {
+        "men": ["masculinity"],
+        "women": ["femininity"]
+      }
+    },
+    {
       "category": "Adjective 2",
       "terms": {
         "men": ["masculinized", "masculinised"],
