@@ -1,3 +1,4 @@
+const { builder } = require("@netlify/functions");
 const DomWordReplacer = require('@mooeypoo/dom-word-replacer');
 const dictDefinition = require('../src/data/binarygender.json');
 const fetch = require('node-fetch');
@@ -43,7 +44,7 @@ const getUrlContents = async (url, isMobile) => {
   }
 };
 
-exports.handler = async event => {
+async function RunOperation (event) {
   const pathparams = event.path.replace('api/replace', '');
   let [url, type] = pathparams.split('/').filter(entry => !!entry);
   const isMobile = type === 'mobile';
@@ -98,6 +99,11 @@ exports.handler = async event => {
 
   return {
     statusCode: 200,
+    headers: {
+      "Content-Type": "text/html",
+    },
     body: result
   }
 }
+
+exports.handler = builder(RunOperation);
