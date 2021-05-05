@@ -240,6 +240,20 @@
       }
     },
     {
+      "category": "Child school (singular)",
+      "terms": {
+        "men": ["schoolboy"],
+        "women": ["schoolgirl"]
+      }
+    },
+    {
+      "category": "Child school (plural)",
+      "terms": {
+        "men": ["schoolboys"],
+        "women": ["schoolgirls"]
+      }
+    },
+    {
       "category": "Sibling (singular)",
       "terms": {
         "men": ["brother"],
@@ -386,6 +400,20 @@
       "terms": {
         "men": ["masculinized", "masculinised"],
         "women": ["femininized", "femininised", "feminized", "feminised"]
+      }
+    },
+    {
+      "category": "Playboy (singular)",
+      "terms": {
+        "men": ["playboy"],
+        "women": ["playgirl"]
+      }
+    },
+    {
+      "category": "Playboy (plural)",
+      "terms": {
+        "men": ["playboys"],
+        "women": ["playgirls"]
       }
     },
     {
