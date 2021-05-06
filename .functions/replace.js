@@ -95,7 +95,10 @@ async function RunOperation (event) {
   });
 
   // Convert both ways
-  let result = replacer.replace(data.content, 'men', 'women', urlObj.origin, true);
+  let result = replacer.replace(data.content, 'men', 'women', {
+    baseUrl: urlObj.origin,
+    replaceBothWays: true
+  });
 
   return {
     statusCode: 200,

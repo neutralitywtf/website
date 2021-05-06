@@ -5,7 +5,7 @@
     </v-row>
     <iframe
       :src="apiUrl"
-      v-show="ready"
+      v-show="ready && !loading"
       @load="onIframeReady"
       :class="[$vuetify.breakpoint.smAndDown ? 'mobile' : 'desktop']"
     >
@@ -27,9 +27,9 @@ export default {
   },
   methods: {
     async fetchUrl (url) {
+      this.ready = false
       const viewtype = this.$vuetify.breakpoint.smAndDown ? 'mobile' : 'desktop'
-      const encodedUrl = encodeURIComponent(url)
-      this.apiUrl = `/api/replace/${viewtype}/${encodedUrl}`
+      this.apiUrl = `/api/replace/${viewtype}/${url}`
       console.log('apiUrl', this.apiUrl)
     },
     onIframeReady () {
@@ -39,7 +39,7 @@ export default {
   },
   mounted () {
     this.loading = true
-    console.log(this.$route.params.url)
+    this.ready = false
     // TODO: Also, validate URL
     if (!this.$route.params.url) {
       // Reroute to home
@@ -47,7 +47,6 @@ export default {
       this.$router.push({ name: 'Home' })
     } else {
       // Load the url
-      this.loading = true
       this.fetchUrl(this.$route.params.url)
     }
   }

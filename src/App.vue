@@ -34,7 +34,6 @@
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld'
 
 export default {
   name: 'App',
@@ -57,10 +56,26 @@ export default {
 }
 
 .diagonal {
-  background:#e0006c;
-  background: linear-gradient(to right bottom, #e0006c 50%, #0081e3 50%);
+  background-image: repeating-linear-gradient(
+    43deg,
+    #ffb6d9 70px,
+    #ffb6d9 calc(140px),
+    #cccccc calc(140px),
+    #cccccc calc(150px),
+    #aedcff calc(150px),
+    #aedcff calc(220px),
+    #cccccc calc(220px),
+    #cccccc calc(230px)),
+    none;
+  // background-size: 200px 100%, 200px 100%;
 }
 
+// .diagonal::after {
+//   background-image: repeating-linear-gradient(calc(-43deg), #e0006c 70px, #e0006c calc(140px), #0081e3 calc(140px), #0081e3 calc(210px), rgb(17, 57, 69) calc(210px), rgb(17, 57, 69) calc(280px)), none;
+//   background-size: 200px 100%, 200px 100%;
+//   -webkit-mask-image: repeating-linear-gradient(to right, rgb(0, 0, 0) 200px, rgb(0, 0, 0) calc(400px), rgba(0, 0, 0, 0) calc(400px), rgba(0, 0, 0, 0) calc(600px));
+//   mask-image: repeating-linear-gradient(to right, rgb(0, 0, 0) 200px, rgb(0, 0, 0) calc(400px), rgba(0, 0, 0, 0) calc(400px), rgba(0, 0, 0, 0) calc(600px));
+// }
 .linkable {
   cursor: pointer;
 }

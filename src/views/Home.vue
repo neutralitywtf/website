@@ -3,15 +3,15 @@
     <v-row no-gutters align="center" justify="center">
       <section id="hero" class="pa-10">
         <v-row no-gutters>
-            <v-theme-provider dark>
+            <v-theme-provider>
               <v-container fill-height>
                 <v-row
                   align="center"
-                  class="white--text mx-auto"
+                  class="mx-auto"
                   justify="center"
                 >
                   <v-col
-                    class="white--text text-center"
+                    class="text-center"
                     cols="12"
                     tag="h1"
                   >
@@ -64,7 +64,7 @@
                           <v-btn
                             :disabled="!requestUrl || !valid"
                             color="secondary"
-                            class="mr-4"
+                            class="mt-2"
                             @click.stop.prevent="fetchUrl"
                             x-large
                           >
