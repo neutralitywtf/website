@@ -142,15 +142,7 @@ export default {
     async fetchUrl () {
       const encodedUrl = encodeURIComponent(this.requestUrl)
       this.$router.push({ name: 'Replace', params: { url: encodedUrl } })
-      // this.loading = true
-      // this.ready = false
-      // this.apiUrl = ''
-      // this.apiUrl = `/api/replace/${encodedUrl}/desktop`
     }
-    // onIframeLoaded () {
-    //   this.loading = false
-    //   this.ready = true
-    // }
   },
   async created () {
   }

@@ -27,27 +27,29 @@ export default {
   },
   methods: {
     async fetchUrl (url) {
-      console.log('fetchUrl url', url)
       const viewtype = this.$vuetify.breakpoint.smAndDown ? 'mobile' : 'desktop'
-      this.apiUrl = `/api/replace/${viewtype}/${url}`
+      const encodedUrl = encodeURIComponent(url)
+      this.apiUrl = `/api/replace/${viewtype}/${encodedUrl}`
+      console.log('apiUrl', this.apiUrl)
     },
     onIframeReady () {
-      // this.loading = false
-      // this.ready = true
+      this.loading = false
+      this.ready = true
     }
   },
   mounted () {
     this.loading = true
-    // // TODO: Also, validate URL
-    // if (!this.$route.params.url) {
-    //   // Reroute to home
-    //   // TODO: Pass an error message?
-    //   this.$router.push({ name: 'Home' })
-    // } else {
-    //   // Load the url
-    //   this.loading = true
-    //   this.fetchUrl(this.$route.params.url)
-    // }
+    console.log(this.$route.params.url)
+    // TODO: Also, validate URL
+    if (!this.$route.params.url) {
+      // Reroute to home
+      // TODO: Pass an error message?
+      this.$router.push({ name: 'Home' })
+    } else {
+      // Load the url
+      this.loading = true
+      this.fetchUrl(this.$route.params.url)
+    }
   }
 }
 </script>

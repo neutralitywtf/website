@@ -5,9 +5,10 @@
       color="white"
     >
       <v-avatar
-        class="mr-3"
+        class="mr-3 linkable"
         color="grey lighten-5"
         size="70"
+        @click="goHome"
       >
         <v-img
           contain
@@ -16,7 +17,10 @@
         ></v-img>
       </v-avatar>
 
-      <v-toolbar-title class="font-weight-black headline">
+      <v-toolbar-title
+        class="font-weight-black headline linkable"
+        @click="goHome"
+      >
         Neutrality.WTF
       </v-toolbar-title>
       <!-- <v-spacer></v-spacer> -->
@@ -34,14 +38,16 @@
 
 export default {
   name: 'App',
-
-  components: {
-    // HelloWorld
-  },
-
+  components: {},
   data: () => ({
-    //
-  })
+  }),
+  methods: {
+    goHome () {
+      if (this.$route.name !== 'Home') {
+        this.$router.push({ name: 'Home' })
+      }
+    }
+  }
 }
 </script>
 
@@ -55,4 +61,7 @@ export default {
   background: linear-gradient(to right bottom, #e0006c 50%, #0081e3 50%);
 }
 
+.linkable {
+  cursor: pointer;
+}
 </style>
