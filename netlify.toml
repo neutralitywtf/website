@@ -2,7 +2,7 @@
   functions = ".functions"
 
 [[redirects]]
-	from = "/api/replace/:url/:type/"
+	from = "/api/replace/:type/:url/"
 	to = "/.netlify/functions/replace"
 	status = 200
 	force = true

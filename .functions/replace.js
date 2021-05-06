@@ -46,7 +46,7 @@ const getUrlContents = async (url, isMobile) => {
 
 async function RunOperation (event) {
   const pathparams = event.path.replace('api/replace', '');
-  let [url, type] = pathparams.split('/').filter(entry => !!entry);
+  let [type, url] = pathparams.split('/').filter(entry => !!entry);
   const isMobile = type === 'mobile';
   url = decodeURIComponent(url);
 
