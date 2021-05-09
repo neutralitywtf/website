@@ -268,7 +268,15 @@ export default {
   components: {
   },
   methods: {
+    normalizeUrl () {
+      // If there's no https:// add it
+      const matches = this.requestUrl.match(/^(https?:\/\/)/)
+      if (!matches || !matches.length) {
+        this.requestUrl = 'https://' + this.requestUrl
+      }
+    },
     async fetchUrl () {
+      this.normalizeUrl()
       const encodedUrl = encodeURIComponent(this.requestUrl)
       this.$router.push({ name: 'Replace', params: { url: encodedUrl } })
     },
