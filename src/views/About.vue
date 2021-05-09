@@ -39,7 +39,7 @@
           title="Technical stuff"
           subtitle=""
         >
-          <p><span class='neutralitywtf-about-text-logo'>Neutrality:WTF</span> uses the <a href="https://github.com/https://github.com/mooeypoo/dom-word-replacer">Dom Word Replacer</a> npm library, available on GitHub. The library uses dictionaries to do direct replacements of words in HTML documents based on dictionary definitions.</p>
+          <p><span class='neutralitywtf-about-text-logo'>Neutrality:WTF</span> uses the <a href="https://github.com/mooeypoo/dom-word-replacer">Dom Word Replacer</a> npm library, available on GitHub. The library uses dictionaries to do direct replacements of words in HTML documents based on dictionary definitions.</p>
         </TextSection>
 
         <!-- <h2>List of replacements</h2>
