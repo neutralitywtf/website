@@ -65,23 +65,23 @@
         <v-btn
           tile
           text
+          to="/dictionary"
+        >
+          <v-icon left>
+            mdi-book-open-variant
+          </v-icon>
+          DICTIONARY TERMS
+        </v-btn>
+
+        <v-btn
+          tile
+          text
           to="/about"
         >
           <v-icon left>
             mdi-information
           </v-icon>
           ABOUT
-        </v-btn>
-
-        <v-btn
-          tile
-          text
-          to="/dictionary"
-        >
-          <v-icon left>
-            mdi-book-open-variant
-          </v-icon>
-          DICTIONARY
         </v-btn>
 
       </div>
@@ -142,6 +142,13 @@
           <v-list-item-title>Analyze Language</v-list-item-title>
         </v-list-item> -->
 
+        <v-list-item to="/dictionary">
+          <v-list-item-icon>
+            <v-icon>mdi-book-open-variant</v-icon>
+          </v-list-item-icon>
+          <v-list-item-title>Dictionary terms</v-list-item-title>
+        </v-list-item>
+
         <v-list-item to="/about">
           <v-list-item-icon>
             <v-icon>mdi-information</v-icon>
@@ -149,12 +156,6 @@
           <v-list-item-title>About this tool</v-list-item-title>
         </v-list-item>
 
-        <v-list-item to="/dictionary">
-          <v-list-item-icon>
-            <v-icon>mdi-book-open-variant</v-icon>
-          </v-list-item-icon>
-          <v-list-item-title>Dictionary</v-list-item-title>
-        </v-list-item>
       </v-list-item-group>
     </v-list>
     </v-navigation-drawer>
