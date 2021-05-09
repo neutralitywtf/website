@@ -72,6 +72,18 @@
           </v-icon>
           ABOUT
         </v-btn>
+
+        <v-btn
+          tile
+          text
+          to="/dictionary"
+        >
+          <v-icon left>
+            mdi-book-open-variant
+          </v-icon>
+          DICTIONARY
+        </v-btn>
+
       </div>
       <v-app-bar-nav-icon
         v-if="$vuetify.breakpoint.smAndDown"
@@ -134,7 +146,14 @@
           <v-list-item-icon>
             <v-icon>mdi-information</v-icon>
           </v-list-item-icon>
-          <v-list-item-title>About this toolbar</v-list-item-title>
+          <v-list-item-title>About this tool</v-list-item-title>
+        </v-list-item>
+
+        <v-list-item to="/dictionary">
+          <v-list-item-icon>
+            <v-icon>mdi-book-open-variant</v-icon>
+          </v-list-item-icon>
+          <v-list-item-title>Dictionary</v-list-item-title>
         </v-list-item>
       </v-list-item-group>
     </v-list>

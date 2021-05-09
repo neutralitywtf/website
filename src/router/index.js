@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Replace from '../views/Replace.vue'
+import Dictionary from '../views/Dictionary.vue'
 import goTo from 'vuetify/es5/services/goto'
 
 Vue.use(VueRouter)
@@ -17,6 +18,11 @@ const routes = [
     name: 'Replace',
     component: Replace,
     props: true
+  },
+  {
+    path: '/dictionary',
+    name: 'Dictionary',
+    component: Dictionary
   },
   {
     path: '/about',
