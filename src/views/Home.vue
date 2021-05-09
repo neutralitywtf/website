@@ -135,7 +135,15 @@
                         @click="goToExample('https://money.cnn.com/2017/08/21/news/economy/girls-who-code-saujani/index.html')"
                       >
                         <v-icon left>mdi-book-open</v-icon>
-                        Men build tech to replace their mothers
+                        (CNN) Men build tech to replace their mothers
+                      </v-btn>
+                      <v-btn
+                        small
+                        class="ma-2"
+                        @click="goToExample('https://www.wikihow.com/Date-Girls')"
+                      >
+                        <v-icon left>mdi-book-open</v-icon>
+                        (WikiHow) How to date girls
                       </v-btn>
                     </v-col>
                   </v-row>
@@ -147,6 +155,8 @@
                     <v-col align="center" justify="center">
                       <v-btn
                         outlined
+                        x-large
+                        color="secondary"
                         @click="$vuetify.goTo('#home-info')"
                       >
                         <v-icon left>mdi-chevron-double-down</v-icon>
@@ -266,8 +276,6 @@ export default {
       this.requestUrl = url
       this.fetchUrl()
     }
-  },
-  async created () {
   }
 }
 </script>
