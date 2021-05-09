@@ -143,6 +143,53 @@
     <v-main>
       <router-view></router-view>
     </v-main>
+    <v-footer
+      v-if="$route.name !== 'Replace'"
+      color="secondary"
+      class="py-5"
+    >
+      <v-card
+        flat
+        tile
+        width="100%"
+        class="secondary text-center"
+      >
+      <v-row>
+        <v-col>
+          <v-btn
+            text
+            color="#ffb6d9"
+            href="https://github.com/neutralitywtf/website/"
+            target="_blank"
+          >
+            <v-icon left>mdi-github</v-icon>
+            neutralitywtf is open source
+          </v-btn>
+        </v-col>
+        <v-col>
+          <v-btn
+            text
+            color="#aedcff"
+            href="http://www.twitter.com/mooeypoo"
+            target="_blank"
+          >
+            <v-icon left>mdi-twitter</v-icon>
+            mooeypoo
+          </v-btn>
+        </v-col>
+        <v-col>
+          <v-btn
+            text
+            color="white"
+            to="/about"
+          >
+            <v-icon left>mdi-information</v-icon>
+            About Neutrality.WTF
+          </v-btn>
+        </v-col>
+      </v-row>
+      </v-card>
+    </v-footer>
   </v-app>
 </template>
 
