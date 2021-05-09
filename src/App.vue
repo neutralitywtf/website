@@ -93,7 +93,7 @@
 
     <v-navigation-drawer
       v-model="sidemenu"
-      absolute
+      app
       temporary
     >
     <v-list-item @click="goHome">
