@@ -51,7 +51,7 @@
           FLIP
         </v-btn>
 
-        <v-btn
+        <!-- <v-btn
           tile
           text
           to="/analyze"
@@ -60,7 +60,7 @@
             mdi-file-search
           </v-icon>
           ANALYZE
-        </v-btn>
+        </v-btn> -->
 
         <v-btn
           tile
@@ -123,12 +123,12 @@
           <v-list-item-title>Flip Language</v-list-item-title>
         </v-list-item>
 
-        <v-list-item to="/analyze">
+        <!-- <v-list-item to="/analyze">
           <v-list-item-icon>
             <v-icon>mdi-file-search</v-icon>
           </v-list-item-icon>
           <v-list-item-title>Analyze Language</v-list-item-title>
-        </v-list-item>
+        </v-list-item> -->
 
         <v-list-item to="/about">
           <v-list-item-icon>
