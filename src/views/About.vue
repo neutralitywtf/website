@@ -23,8 +23,8 @@
           title="Gender isn't binary"
           subtitle="Gender is a spectrum, but gendered language tends to be binary."
         >
-          <p><span class='neutralitywtf-about-text-logo'>Neutrality:WTF</span> exists to demonstrate what happens to our language online when we switch genders around. Is there a clear difference between how we relate to men versus how we talk about women? Do we notice when we fall into pitfalls that encourage one gender at the expense of another? Can we even see when an article we think is 'complimentary' is actually anything but?</p>
-          <p class='neutralitywtf-emphasis'><span class='neutralitywtf-about-text-logo'>Neutrality:WTF</span> challenges you to try and notice.</p>
+          <p><a href="https://en.wikipedia.org/wiki/Non-binary_gender" target="_blank">Gender is a spectrum</a>. This tool is not meant to dismiss this, on the contrary -- it's meant to showcase that when we use binary gendered language online, we run into all the biases and problematic terminologies and attitudes that we're attempting to avoid.</p>
+          <p>We should all speak and use more non-gendered language, in general. This tool may showcase why that's important even in cases that are hard to spot.</p>
         </TextSection>
 
         <TextSection
