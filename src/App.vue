@@ -5,9 +5,9 @@
       color="white"
     >
       <v-avatar
-        class="mr-3 linkable"
+        class="linkable"
         color="grey lighten-5"
-        size="70"
+        size="60"
         @click="goHome"
       >
         <v-img
@@ -18,11 +18,26 @@
       </v-avatar>
 
       <v-toolbar-title
-        class="font-weight-black headline linkable"
+        class="font-weight-black linkable"
+        :class="[$vuetify.breakpoint.smAndDown ? '' : 'headline']"
         @click="goHome"
       >
         Neutrality.WTF
       </v-toolbar-title>
+      <div v-if="$route.name === 'Replace' && !!$route.params.url">
+        <v-spacer></v-spacer>
+        <v-btn
+          outlined
+          small
+          color="warning"
+          class="mx-5"
+          :href="decodeURIComponent(this.$route.params.url)"
+          target="_blank"
+        >
+          {{originalWebsiteButtonText}}
+        </v-btn>
+      </div>
+
       <v-spacer></v-spacer>
       <div v-if="$vuetify.breakpoint.mdAndUp">
         <v-btn
@@ -140,6 +155,12 @@ export default {
     sidemenu: false,
     group: null
   }),
+  computed: {
+    originalWebsiteButtonText () {
+      return this.$vuetify.breakpoint.smAndDown
+        ? 'Original' : 'Visit original website'
+    }
+  },
   methods: {
     goHome () {
       if (this.$route.name !== 'Home') {
