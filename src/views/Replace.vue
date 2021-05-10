@@ -67,12 +67,33 @@ export default {
       }
       return false
     },
+    cleanupKnownSitesInIframe () {
+      // There are known display issues with some websites;
+      // Clean up the DOM for those
+      const knownSitesToFix = [
+        'www.wikihow.com'
+      ]
+
+      const urlobj = new URL(this.requestedUrl)
+      if (knownSitesToFix.indexOf(urlobj.hostname) === -1) {
+        return
+      }
+
+      const iframe = document.querySelector('#display-iframe')
+      const iframeDocument = iframe.contentDocument || iframe.contentWindow.document
+
+      const header = iframeDocument.getElementById('header_container')
+      if (urlobj.hostname === 'www.wikihow.com' && header) {
+        header.style.display = 'none'
+      }
+    },
     onIframeReady () {
       // Check if what we received is an error
       if (!this.isIframeContentValid()) {
         // Error!
         this.error = true
       }
+      this.cleanupKnownSitesInIframe()
       this.loading = false
       this.ready = true
     }
