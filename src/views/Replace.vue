@@ -22,16 +22,51 @@
             </ul>
           </p>
           <p>If you're sure this URL is valid, try again in a few minutes.</p>
-          <p>If this error persists and you think there's a problem with the system, please consider <a href="" target="_blank">submitting a bug report!</a>. Please be sure to include what URL you've tried to fetch.</p>
+          <p>If this error persists and you think there's a problem with the system, please consider <a href="" target="_blank">submitting a bug report!</a>. Please include the content of the error below (expandable).</p>
         </v-alert>
-          <v-btn
-            x-large
-            color="primary"
-            to="/"
-          >
-            <v-icon left>mdi-information</v-icon>
-            Try another website
-          </v-btn>
+        <v-expansion-panels class="mb-6">
+          <v-expansion-panel>
+            <v-expansion-panel-header>Error details (click to expand)</v-expansion-panel-header>
+            <v-expansion-panel-content>
+            <v-btn
+              id="data-report-button"
+              data-clipboard-target="#error-report-content"
+              color="secondary"
+              outlined
+              @click="copyErrorToClipboard"
+            >Copy to clipboard
+            </v-btn>
+            <pre id="error-report-content" >
+  ## Request details:
+  * Timestamp: {{getCurrentUTCTime}}
+  * Requested URL: {{requestedUrl}}
+  * API URL: {{apiUrl}}
+  * Display type: {{this.$vuetify.breakpoint.smAndDown ? 'mobile' : 'desktop'}}
+
+  ## Error content:
+  ```
+  {{errorContent}}
+  ```</pre>
+            <v-btn
+              id="data-report-button"
+              data-clipboard-target="#error-report-content"
+              color="secondary"
+              outlined
+              @click="copyErrorToClipboard"
+            >Copy to clipboard
+            </v-btn>
+            </v-expansion-panel-content>
+          </v-expansion-panel>
+        </v-expansion-panels>
+
+        <v-btn
+          x-large
+          color="primary"
+          to="/"
+        >
+          <v-icon left>mdi-information</v-icon>
+          Try another website
+        </v-btn>
       </v-col>
     </v-row>
     <iframe
@@ -47,12 +82,15 @@
 
 <script>
 import LoadingAnimation from '../components/LoadingAnimation'
+import ClipboardJS from 'clipboard'
+
 export default {
   name: 'Replace',
   components: { LoadingAnimation },
   data () {
     return {
       error: false,
+      errorContent: '',
       loading: false,
       ready: false,
       apiUrl: ''
@@ -61,6 +99,9 @@ export default {
   computed: {
     requestedUrl () {
       return decodeURIComponent(this.$route.params.url)
+    },
+    getCurrentUTCTime () {
+      return new Date().toUTCString()
     }
   },
   methods: {
@@ -73,6 +114,8 @@ export default {
     isIframeContentValid () {
       const iframe = document.querySelector('#display-iframe')
       const iframeDocument = iframe.contentDocument || iframe.contentWindow.document
+      this.errorContent = iframeDocument.body.textContent
+
       if (iframeDocument) {
         try {
           JSON.parse(iframeDocument.body.textContent)
@@ -96,6 +139,10 @@ export default {
       }
       this.loading = false
       this.ready = true
+    },
+    copyErrorToClipboard () {
+      // eslint-disable-next-line no-unused-vars
+      const clipboard = new ClipboardJS('#data-report-button')
     }
   },
   mounted () {
