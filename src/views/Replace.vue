@@ -83,8 +83,13 @@ export default {
       const iframeDocument = iframe.contentDocument || iframe.contentWindow.document
 
       const header = iframeDocument.getElementById('header_container')
-      if (urlobj.hostname === 'www.wikihow.com' && header) {
-        header.style.display = 'none'
+      if (
+        urlobj.hostname === 'www.wikihow.com' &&
+        // Wikihow in mobile
+        this.$vuetify.breakpoint.smAndDown &&
+        header
+      ) {
+        header.style.position = 'absolute'
       }
     },
     onIframeReady () {
