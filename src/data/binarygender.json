@@ -353,7 +353,7 @@
     },
     {
       "category": "Pronouns: possession",
-      "ambiguous": ["men"],
+      "ambiguous": ["men", "women"],
       "terms": {
         "men": ["his"],
         "women": ["her"]
@@ -361,7 +361,7 @@
     },
     {
       "category": "Pronouns: whose",
-      "ambiguous": ["men"],
+      "ambiguous": ["men", "women"],
       "terms": {
         "men": ["his"],
         "women": ["hers"]

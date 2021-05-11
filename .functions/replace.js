@@ -91,6 +91,12 @@ async function RunOperation (event) {
       .neutralitywtf-term.neutralitywtf-term-ambiguous {
         background-color: rgba(255, 193, 7, 0.5);
       }
+      .neutralitywtf-term.neutralitywtf-term-ambiguous::after {
+        content: "(?)";
+        font-size: 0.7em;
+        color: red;
+        vertical-align: top;
+      }
     `
   });
 

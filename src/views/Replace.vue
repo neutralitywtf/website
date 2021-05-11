@@ -16,6 +16,36 @@
       :class="[$vuetify.breakpoint.smAndDown ? 'mobile' : 'desktop']"
     >
     </iframe>
+    <v-dialog
+      v-model="ambiguousDialog"
+      width="500"
+    >
+      <v-card>
+        <v-card-title class="headline grey lighten-2">
+          Ambiguous replacements
+        </v-card-title>
+
+        <v-card-text>
+          This word has been marked as "ambiguous", which means that the original word has several options for replacements. The system can't tell which to choose, because it doesn't know context, which makes these ambiguous replacements often wrong.
+        </v-card-text>
+
+        <v-card-text>
+          <p>An example of an ambiguous word is <strong>"her"</strong> being replaced with either <strong>"him"</strong> or <strong>"his"</strong> depending on context.</p>
+          <p>Since the system has no understanding of context, the substitution may be wrong.</p>
+        </v-card-text>
+        <v-divider></v-divider>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="primary"
+            text
+            @click="ambiguousDialog = false"
+          >
+            Got it!
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-container>
 </template>
 
@@ -28,11 +58,13 @@ export default {
   components: { LoadingAnimation, ReplacerError },
   data () {
     return {
+      iFrameEventListeners: {},
       error: false,
       errorContent: '',
       loading: false,
       ready: false,
-      apiUrl: ''
+      apiUrl: '',
+      ambiguousDialog: false
     }
   },
   computed: {
@@ -43,9 +75,9 @@ export default {
   methods: {
     async fetchUrl (url) {
       this.ready = false
+      this.removeIframeEventListeners()
       const viewtype = this.$vuetify.breakpoint.smAndDown ? 'mobile' : 'desktop'
       this.apiUrl = `/api/replace/${viewtype}/${url}`
-      console.log('apiUrl', this.apiUrl)
     },
     isIframeContentValid () {
       const iframe = document.querySelector('#display-iframe')
@@ -99,8 +131,31 @@ export default {
         this.error = true
       }
       this.cleanupKnownSitesInIframe()
+      this.addIframeEventListeners()
       this.loading = false
       this.ready = true
+    },
+    addIframeEventListeners () {
+      const iframe = document.querySelector('#display-iframe')
+      const iframeDocument = iframe.contentDocument || iframe.contentWindow.document
+
+      this.iFrameEventListeners.openAmbiguousDialog = this.iFrameEventListeners.openAmbiguousDialog || []
+      const elements = iframeDocument.getElementsByClassName('neutralitywtf-term-ambiguous')
+      Array.from(elements).forEach(element => {
+        this.iFrameEventListeners.openAmbiguousDialog.push(element)
+        element.addEventListener('click', this.onIframeAmbiguousClick)
+      })
+    },
+    removeIframeEventListeners () {
+      Object.keys(this.iFrameEventListeners).forEach(eventName => {
+        this.iFrameEventListeners[eventName].forEach(element => {
+          element.removeEventListener(eventName, this.onIframeAmbiguousClick, false)
+        })
+      })
+      this.iFrameEventListeners = {}
+    },
+    onIframeAmbiguousClick (e) {
+      this.ambiguousDialog = true
     }
   },
   mounted () {
