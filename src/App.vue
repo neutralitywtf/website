@@ -18,25 +18,30 @@
       </v-avatar>
 
       <v-toolbar-title
-        class="font-weight-black linkable"
-        :class="[$vuetify.breakpoint.smAndDown ? '' : 'headline']"
+        v-if="$vuetify.breakpoint.mdAndUp"
+        class="font-weight-black linkable headline"
         @click="goHome"
       >
         Neutrality.WTF
       </v-toolbar-title>
-      <div v-if="$route.name === 'Replace' && !!$route.params.url">
-        <v-spacer></v-spacer>
-        <v-btn
-          outlined
-          small
-          color="warning"
-          class="mx-5"
-          :href="decodeURIComponent(this.$route.params.url)"
-          target="_blank"
-        >
-          {{originalWebsiteButtonText}}
-        </v-btn>
-      </div>
+
+      <v-spacer></v-spacer>
+      <v-btn
+        v-if="$route.name === 'Replace' && !!$route.params.url"
+        outlined
+        small
+        color="warning"
+        class="mx-5"
+        :href="decodeURIComponent(this.$route.params.url)"
+        target="_blank"
+      >
+        {{originalWebsiteButtonText}}
+      </v-btn>
+
+      <v-spacer></v-spacer>
+      <ShareDialog
+        v-if="$route.name === 'Replace' && !!$route.params.url"
+      />
 
       <v-spacer></v-spacer>
       <div v-if="$vuetify.breakpoint.mdAndUp">
@@ -163,6 +168,7 @@
     <v-main>
       <router-view></router-view>
     </v-main>
+
     <v-footer
       v-if="$route.name !== 'Replace'"
       color="secondary"
@@ -214,10 +220,11 @@
 </template>
 
 <script>
+import ShareDialog from './components/ShareDialog'
 
 export default {
   name: 'App',
-  components: {},
+  components: { ShareDialog },
   data: () => ({
     sidemenu: false,
     group: null
