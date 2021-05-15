@@ -25,7 +25,9 @@
         Neutrality.WTF
       </v-toolbar-title>
 
-      <v-spacer></v-spacer>
+      <v-spacer
+        v-if="$route.name === 'Replace' && !!$route.params.url"
+      ></v-spacer>
       <v-btn
         v-if="$route.name === 'Replace' && !!$route.params.url"
         outlined
@@ -39,9 +41,8 @@
       </v-btn>
 
       <v-spacer></v-spacer>
-      <ShareDialog
-        v-if="$route.name === 'Replace' && !!$route.params.url"
-      />
+
+      <ShareDialog/>
 
       <v-spacer></v-spacer>
       <div v-if="$vuetify.breakpoint.mdAndUp">

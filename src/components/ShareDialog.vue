@@ -18,11 +18,11 @@
       <v-card-actions>
         <twitter-button
           :shareUrl="sharedUrl"
-          :shareDescription="shareDescription"
+          :shareDescription="sharedDescription"
         />
         <facebook-button
           :shareUrl="sharedUrl"
-          :shareDescription="shareDescription"
+          :shareDescription="sharedDescription"
         />
       </v-card-actions>
     </v-dialog>
