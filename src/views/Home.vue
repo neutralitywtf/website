@@ -1,8 +1,8 @@
 <template>
   <div>
     <v-container
-      class="home pa-0 diagonal"
       fluid
+      class="home pa-0 diagonal"
       fill-height
       :class="[$vuetify.breakpoint.smAndDown ? 'mobile' : 'desktop']"
     >
@@ -97,7 +97,7 @@
 
                         </v-col>
                       </v-row>
-                      <v-row>
+                      <!-- <v-row>
                         <v-col>
                           <v-card
                             class="explanation-box mx-auto"
@@ -106,11 +106,11 @@
                             shaped
                           >
                             <v-card-text>
-                              Get some insight about the neutrality of online pages by typing a valid URL in the input above, and the system will show it to you with binary gender terms switched around.
+                              Gain some insight into the neutrality of gendered language online.
                             </v-card-text>
                           </v-card>
                         </v-col>
-                      </v-row>
+                      </v-row> -->
                     </v-col>
                   </v-row>
                   <v-row
@@ -123,7 +123,7 @@
 
                       <v-btn
                         small
-                        class="ma-2"
+                        class="mb-2 mx-2"
                         @click="goToExample('https://en.wikipedia.org/wiki/Ada_Lovelace')"
                       >
                         <v-icon left>mdi-wikipedia</v-icon>
@@ -131,15 +131,15 @@
                       </v-btn>
                       <v-btn
                         small
-                        class="ma-2"
+                        class="mb-2 mx-2"
                         @click="goToExample('https://money.cnn.com/2017/08/21/news/economy/girls-who-code-saujani/index.html')"
                       >
                         <v-icon left>mdi-book-open</v-icon>
-                        (CNN) Men build tech to replace their mothers
+                        (CNN) Men build tech
                       </v-btn>
                       <v-btn
                         small
-                        class="ma-2"
+                        class="mb-2 mx-2"
                         @click="goToExample('https://www.wikihow.com/Date-Girls')"
                       >
                         <v-icon left>mdi-book-open</v-icon>
@@ -235,7 +235,7 @@
                   to="/about"
                 >
                   <v-icon left>mdi-information</v-icon>
-                  Read more in the About page
+                  Read more...
                 </v-btn>
               </div>
             </v-col>

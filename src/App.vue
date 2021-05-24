@@ -25,9 +25,9 @@
         Neutrality.WTF
       </v-toolbar-title>
 
-      <v-spacer
+      <!-- <v-spacer
         v-if="$route.name === 'Replace' && !!$route.params.url"
-      ></v-spacer>
+      ></v-spacer> -->
       <v-btn
         v-if="$route.name === 'Replace' && !!$route.params.url"
         outlined
@@ -41,56 +41,57 @@
       </v-btn>
 
       <v-spacer></v-spacer>
-
       <ShareDialog/>
-
       <v-spacer></v-spacer>
-      <div v-if="$vuetify.breakpoint.mdAndUp">
-        <v-btn
-          tile
-          text
-          to="/"
-        >
-          <v-icon left>
-            mdi-find-replace
-          </v-icon>
-          FLIP
-        </v-btn>
 
-        <!-- <v-btn
-          tile
-          text
-          to="/analyze"
-        >
-          <v-icon left>
-            mdi-file-search
-          </v-icon>
-          ANALYZE
-        </v-btn> -->
+      <v-btn
+        v-if="$vuetify.breakpoint.mdAndUp"
+        tile
+        text
+        to="/"
+      >
+        <v-icon left>
+          mdi-find-replace
+        </v-icon>
+        FLIP
+      </v-btn>
 
-        <v-btn
-          tile
-          text
-          to="/dictionary"
-        >
-          <v-icon left>
-            mdi-book-open-variant
-          </v-icon>
-          DICTIONARY TERMS
-        </v-btn>
+      <!-- <v-btn
+        v-if="$vuetify.breakpoint.mdAndUp"
+        tile
+        text
+        to="/analyze"
+      >
+        <v-icon left>
+          mdi-file-search
+        </v-icon>
+        ANALYZE
+      </v-btn> -->
 
-        <v-btn
-          tile
-          text
-          to="/about"
-        >
-          <v-icon left>
-            mdi-information
-          </v-icon>
-          ABOUT
-        </v-btn>
+      <v-btn
+        v-if="$vuetify.breakpoint.mdAndUp"
+        tile
+        text
+        to="/dictionary"
+      >
+        <v-icon left>
+          mdi-book-open-variant
+        </v-icon>
+        DICTIONARY TERMS
+      </v-btn>
 
-      </div>
+      <v-btn
+        v-if="$vuetify.breakpoint.mdAndUp"
+        tile
+        text
+        to="/about"
+      >
+        <v-icon left>
+          mdi-information
+        </v-icon>
+        ABOUT
+      </v-btn>
+
       <v-app-bar-nav-icon
         v-if="$vuetify.breakpoint.smAndDown"
         @click="sidemenu = true"
@@ -248,7 +249,7 @@ export default {
 
 <style lang="less">
 .v-application--wrap {
-  max-width: none !important;
+  max-width: 100% !important;
 }
 
 .diagonal {
