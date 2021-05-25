@@ -44,11 +44,29 @@ const getUrlContents = async (url, isMobile) => {
   }
 };
 
+const decideIfMobile = (type, url) => {
+  // These are sites that send dynamic content in mobile
+  // (JS dependent, lazy-load content)
+  // Which means it loads as an empty page. If these domains
+  // are identified, always ask for the desktop version
+  const neverMobileSites = [ 'cnn.com' ];
+  const urlObj = new URL(url);
+
+  return type === 'mobile' &&
+    !neverMobileSites
+      .filter( host => {
+        return urlObj.origin.includes(host);
+      })
+      .length
+}
+
 async function RunOperation (event) {
   const pathparams = event.path.replace('api/replace', '');
   let [type, url] = pathparams.split('/').filter(entry => !!entry);
-  const isMobile = type === 'mobile';
+
   url = decodeURIComponent(url);
+
+  const isMobile = decideIfMobile(type, url);
 
   // Validate url
   if (!validateUrl(url)) {
