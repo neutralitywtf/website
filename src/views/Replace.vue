@@ -58,6 +58,7 @@ export default {
   components: { LoadingAnimation, ReplacerError },
   data () {
     return {
+      timing: { start: 0, end: 0 },
       iFrameEventListeners: {},
       error: false,
       errorContent: '',
@@ -74,6 +75,7 @@ export default {
   },
   methods: {
     async fetchUrl (url) {
+      this.timing.start = new Date()
       this.ready = false
       this.removeIframeEventListeners()
       const viewtype = this.$vuetify.breakpoint.smAndDown ? 'mobile' : 'desktop'
@@ -134,6 +136,8 @@ export default {
       this.addIframeEventListeners()
       this.loading = false
       this.ready = true
+      const elapsed = new Date() - this.timing.start
+      console.info('Parsed requested page: %dms', elapsed)
     },
     addIframeEventListeners () {
       const iframe = document.querySelector('#display-iframe')
