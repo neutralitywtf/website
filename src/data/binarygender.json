@@ -30,6 +30,20 @@
       }
     },
     {
+      "category": "Familial proximity",
+      "terms": {
+        "men": ["patrilocal"],
+        "women": ["matrilocal"]
+      }
+    },
+    {
+      "category": "Familial gender focus",
+      "terms": {
+        "men": ["patrifocal"],
+        "women": ["matrifocal"]
+      }
+    },
+    {
       "category": "Negative terminology (singular)",
       "terms": {
         "men": ["sexism", "chauvinism", "misandry"],
