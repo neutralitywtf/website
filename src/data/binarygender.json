@@ -9,6 +9,13 @@
       }
     },
     {
+      "category": "Terminology (plural)",
+      "terms": {
+        "men": ["patriarchies"],
+        "women": ["matriarchies"]
+      }
+    },
+    {
       "category": "Terminology (Adj)",
       "terms": {
         "men": ["patriarchal", "patriarchical"],
